@@ -1,0 +1,41 @@
+neoForge {
+    version = libs.versions.neoForge.get()
+    addModdingDependenciesTo sourceSets.gametest
+
+    runs {
+        configureEach {
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+        }
+
+        client {
+            client()
+            gameDirectory = project.file('run/client')
+        }
+
+        server {
+            server()
+            programArgument '--nogui'
+            gameDirectory = project.file('run/server')
+        }
+
+        gameTestServer {
+            type = 'gameTestServer'
+            gameDirectory = project.file('build/gametest')
+        }
+
+        data {
+            data()
+            gameDirectory = project.file('build/datagen')
+            programArguments.addAll '--mod', project.mod_id, '--all',
+                '--output', file('src/generated/resources').absolutePath,
+                '--existing', file('src/main/resources').absolutePath
+        }
+    }
+
+    mods {
+        "${mod_id}" {
+            sourceSet sourceSets.main
+            sourceSet sourceSets.gametest
+        }
+    }
+}

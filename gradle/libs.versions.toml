@@ -1,0 +1,22 @@
+[versions]
+minecraft = "1.21.1"
+neoForge = "21.1.241"
+modDevGradle = "2.0.147"
+anvilcraft = "9O2rbeiA"
+sable = "fg9dTRz9"
+sableCompanion = "1.6.0"
+create = "UjX6dr61"
+aeronautics = "44pLdPGg"
+jspecify = "1.0.0"
+checkstyle = "13.6.0"
+
+[libraries]
+anvilcraft = { group = "maven.modrinth", name = "anvilcraft", version.ref = "anvilcraft" }
+sable = { group = "maven.modrinth", name = "sable", version.ref = "sable" }
+sable-companion = { group = "dev.ryanhcode.sable-companion", name = "sable-companion-common-1.21.1", version.ref = "sableCompanion" }
+create = { group = "maven.modrinth", name = "create", version.ref = "create" }
+aeronautics = { group = "maven.modrinth", name = "create-aeronautics", version.ref = "aeronautics" }
+jspecify = { group = "org.jspecify", name = "jspecify", version.ref = "jspecify" }
+
+[plugins]
+modDevGradle = { id = "net.neoforged.moddev", version.ref = "modDevGradle" }

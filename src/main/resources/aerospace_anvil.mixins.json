@@ -1,0 +1,19 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "dev.anvilcraft.aerospace.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "EntitySubLevelUtilMixin",
+    "FallingBlockEntityMixin",
+    "MagnetBlockMixin",
+    "ServerLevelPlotMixin"
+  ],
+  "client": [
+    "client.FallingBlockRendererMixin",
+    "client.MagnetAnimationMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

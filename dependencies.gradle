@@ -1,0 +1,8 @@
+dependencies {
+    implementation(libs.anvilcraft) { transitive = false }
+    implementation(libs.sable) { transitive = false }
+    compileOnly(libs.sable.companion) { transitive = false }
+    runtimeOnly(libs.create) { transitive = false }
+    runtimeOnly(libs.aeronautics) { transitive = false }
+    compileOnly(libs.jspecify)
+}

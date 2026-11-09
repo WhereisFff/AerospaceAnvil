@@ -1,0 +1,58 @@
+plugins {
+    id 'java-library'
+    id 'idea'
+    id 'checkstyle'
+    alias libs.plugins.modDevGradle
+}
+
+group = mod_group
+version = mod_version
+base.archivesName = "${rootProject.name}-neoforge-${libs.versions.minecraft.get()}"
+
+java {
+    toolchain.languageVersion = JavaLanguageVersion.of(21)
+    withSourcesJar()
+}
+
+sourceSets {
+    gametest {
+        compileClasspath += sourceSets.main.output
+        runtimeClasspath += sourceSets.main.output
+    }
+}
+
+configurations {
+    gametestImplementation.extendsFrom implementation
+    gametestCompileOnly.extendsFrom compileOnly
+    gametestRuntimeOnly.extendsFrom runtimeOnly
+}
+
+apply from: 'gradle/scripts/repositories.gradle'
+apply from: 'gradle/scripts/moddevgradle.gradle'
+apply from: 'gradle/scripts/resources.gradle'
+apply from: 'dependencies.gradle'
+
+sourceSets.main.resources.srcDir 'src/generated/resources'
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+tasks.withType(Jar).configureEach {
+    preserveFileTimestamps = false
+    reproducibleFileOrder = true
+    from('LICENSE', 'ASSETS_LICENSE')
+}
+
+checkstyle {
+    toolVersion = libs.versions.checkstyle.get()
+    configFile = rootProject.file('style.xml')
+    maxWarnings = 0
+}
+
+idea {
+    module {
+        downloadSources = true
+        downloadJavadoc = true
+    }
+}

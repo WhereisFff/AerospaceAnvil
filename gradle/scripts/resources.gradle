@@ -1,0 +1,15 @@
+tasks.withType(ProcessResources).configureEach {
+    def metadata = [
+        mod_id: project.mod_id,
+        mod_name: project.mod_name,
+        mod_version: project.version,
+        mod_license: project.mod_license,
+        mod_description: project.mod_description,
+        minecraft_version: libs.versions.minecraft.get(),
+        neo_version: libs.versions.neoForge.get()
+    ]
+    inputs.properties metadata
+    filesMatching('META-INF/neoforge.mods.toml') {
+        expand metadata
+    }
+}
