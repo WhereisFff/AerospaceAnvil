@@ -7,7 +7,15 @@
     "EntitySubLevelUtilMixin",
     "FallingBlockEntityMixin",
     "MagnetBlockMixin",
-    "ServerLevelPlotMixin"
+    "ServerLevelPlotMixin",
+    "GravitySourceManagerMixin",
+    "accessor.GravitySourceAccess",
+    "BaseSlidingRailBlockMixin",
+    "PoweredSlidingRailBlockMixin",
+    "SlidingRailStopBlockMixin",
+    "ItemDetectorBlockEntityMixin",
+    "CorruptedBeaconBlockEntityMixin",
+    "ServerChunkCacheMixin"
   ],
   "client": [
     "client.FallingBlockRendererMixin",
