@@ -9,7 +9,7 @@ version = "${mod_version}"
 displayName = "${mod_name}"
 displayURL = "https://github.com/WhereisFff/AerospaceAnvil"
 authors = "WhereisFff"
-description = '''${mod_description}'''
+description = '''航空级铁砧，为铁砧工艺与 Sable 动态结构提供磁铁和下落方块兼容。'''
 
 [[dependencies.${mod_id}]]
 modId = "minecraft"
